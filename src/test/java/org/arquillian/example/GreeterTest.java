@@ -16,6 +16,7 @@ import javax.inject.Inject;
 /**
  * @author glick
  */
+@SuppressWarnings("CdiInjectionPointsInspection")
 @RunWith(Arquillian.class)
 public class GreeterTest {
 

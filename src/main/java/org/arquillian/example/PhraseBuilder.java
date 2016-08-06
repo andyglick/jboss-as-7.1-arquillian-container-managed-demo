@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 /**
  * @author glick
  */
+@SuppressWarnings("WeakerAccess")
 public class PhraseBuilder {
   private Map<String, String> templates;
 
@@ -17,7 +18,7 @@ public class PhraseBuilder {
 
   @PostConstruct
   public void initialize() {
-    templates = new HashMap<String, String>();
+    templates = new HashMap<>();
     templates.put("hello", "Hello, {0}!");
   }
 }
