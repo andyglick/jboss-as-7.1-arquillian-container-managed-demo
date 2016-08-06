@@ -12,8 +12,7 @@
 
   <container qualifier="jbossas-managed" default="true">
     <configuration>
-      <property name="jbossHome">/Users/c1alg01/jtools/jboss-eap-6.4</property>
-      <!--<property name="jbossHome">c:/jboss-as-7.1.2.Final</property>-->
+      <property name="jbossHome">/Users/c1alg01/jtools/jboss-EAP-6.4.0-installed</property>
     </configuration>
   </container>
 
