@@ -8,3 +8,9 @@
 *.ipr
 *.iws
 
+.idea/
+
+*.log
+
+atlassian-ide-plugin.xml
+
