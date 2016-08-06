@@ -287,12 +287,12 @@
           <dependency>
             <groupId>org.jboss.marshalling</groupId>
             <artifactId>jboss-marshalling</artifactId>
-            <version>1.4.10.Final-redhat-1</version>
+            <version>1.4.11.Final</version>
           </dependency>
           <dependency>
             <groupId>org.jboss.marshalling</groupId>
             <artifactId>jboss-marshalling-river</artifactId>
-            <version>1.4.10.Final-redhat-1</version>
+            <version>1.4.11.Final</version>
           </dependency>
 
           <dependency>
