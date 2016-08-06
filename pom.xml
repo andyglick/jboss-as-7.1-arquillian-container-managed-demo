@@ -345,10 +345,26 @@
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <version>1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>1.1.1</version>
+      </dependency>
       <dependency>
         <groupId>javax.inject</groupId>
         <artifactId>javax.inject</artifactId>
         <version>1.0.0.redhat-5</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.1.0.Final</version>
       </dependency>
 
       <dependency>
@@ -361,6 +377,12 @@
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-build-config</artifactId>
         <version>7.5.9.Final-redhat-2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.spec.javax.el</groupId>
+        <artifactId>jboss-el-api_3.0_spec</artifactId>
+        <version>1.0.4.Final</version>
       </dependency>
 
       <dependency>
@@ -407,7 +429,7 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.core</artifactId>
-        <version>5.0.0</version>
+        <version>6.0.0</version>
       </dependency>
 
       <dependency>
@@ -598,9 +620,8 @@
 
     <dependency>
       <groupId>org.jboss.spec</groupId>
-      <artifactId>jboss-javaee-6.0</artifactId>
-      <version>1.0.0.Final</version>
-      <type>pom</type>
+      <artifactId>jboss-javaee-all-7.0</artifactId>
+      <version>1.0.3.Final</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
