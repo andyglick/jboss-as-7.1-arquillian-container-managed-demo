@@ -211,6 +211,9 @@
   <profiles>
     <profile>
       <id>jbossas-managed-7</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
       <dependencyManagement>
         <dependencies>
 
@@ -298,12 +301,12 @@
           <dependency>
             <groupId>org.jboss.spec.javax.interceptor</groupId>
             <artifactId>jboss-interceptors-api_1.1_spec</artifactId>
-            <version>1.0.0.Final</version>
+            <version>1.0.1.Final-redhat-3</version>
           </dependency>
           <dependency>
             <groupId>org.jboss.spec.javax.transaction</groupId>
             <artifactId>jboss-transaction-api_1.1_spec</artifactId>
-            <version>1.0.0.Final</version>
+            <version>1.0.1.Final-redhat-3</version>
           </dependency>
 
           <dependency>
