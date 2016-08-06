@@ -1,3 +1,4 @@
+[![Dependency Status](https://www.versioneye.com/user/projects/57a62edd0f6400002c8da2cd/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57a62edd0f6400002c8da2cd)
 # Arquillian tests for JBoss AS 7.1 for EAP 6.4
 
 started with an old copy of the Arquillian tutorial, which was working
