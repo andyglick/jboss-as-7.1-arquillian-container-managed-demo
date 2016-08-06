@@ -56,6 +56,7 @@
     <findbugs.plugin.version>2.5.2</findbugs.plugin.version>
     <help.plugin.version>2.2</help.plugin.version>
     <install.plugin.version>2.4</install.plugin.version>
+    <jacoco.plugin.version>0.7.7.201606060606</jacoco.plugin.version>
     <jar.plugin.version>2.4</jar.plugin.version>
     <javadoc.plugin.version>2.9.1</javadoc.plugin.version>
     <jxr.plugin.version>2.3</jxr.plugin.version>
@@ -71,6 +72,13 @@
     <resources.plugin.version>2.6</resources.plugin.version>
     <site.plugin.version>3.2</site.plugin.version>
     <slf4j.version>1.7.21</slf4j.version>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.host.url>https://dev.offset1.net/sonar/</sonar.host.url>
+    <sonar.jacoco.itReportPath>${project.basedir}/../target/jacoco-it.exec</sonar.jacoco.itReportPath>
+    <sonar.jacoco.reportPath>${project.basedir}/target/jacoco-unit.exec</sonar.jacoco.reportPath>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.language>java</sonar.language>
+    <sonar.plugin.version>3.0.2</sonar.plugin.version>
     <source.plugin.version>2.2.1</source.plugin.version>
     <spring.version>3.2.3.RELEASE</spring.version>
     <surefire.plugin.version>2.19.1</surefire.plugin.version>
@@ -331,6 +339,7 @@
             <groupId>org.jboss.remoting3</groupId>
             <artifactId>jboss-remoting</artifactId>
             <version>3.3.8.Final-redhat-1</version>
+            <scope>provided</scope>
           </dependency>
 
           <dependency>
@@ -372,7 +381,7 @@
         <dependency>
           <groupId>org.jboss.arquillian.protocol</groupId>
           <artifactId>arquillian-protocol-servlet</artifactId>
-          <version>1.1.11.Final</version>
+          <version>${arquillian.version}</version>
           <scope>test</scope>
         </dependency>
 
@@ -397,16 +406,86 @@
         <dependency>
           <groupId>org.jboss.arquillian.test</groupId>
           <artifactId>arquillian-test-impl-base</artifactId>
-          <version>1.1.11.Final</version>
+          <version>${arquillian.version}</version>
           <scope>test</scope>
         </dependency>
         <dependency>
           <groupId>org.jboss.arquillian.test</groupId>
           <artifactId>arquillian-test-spi</artifactId>
-          <version>1.1.11.Final</version>
+          <version>${arquillian.version}</version>
           <scope>test</scope>
         </dependency>
       </dependencies>
+    </profile>
+
+    <profile>
+      <id>coverage</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>${jacoco.plugin.version}</version>
+            <configuration>
+              <destFile>${sonar.jacoco.reportPath}</destFile>
+            </configuration>
+            <executions>
+              <execution>
+                <id>prepare-unit-tests</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+                <configuration>
+                  <destFile>${sonar.jacoco.reportPath}</destFile>
+                </configuration>
+              </execution>
+              <execution>
+                <id>post-unit-test</id>
+                <phase>test</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+                <configuration>
+                  <!-- Sets the path to the file which contains the execution data. -->
+                  <dataFile>${sonar.jacoco.reportPath}</dataFile>
+                  <!-- Sets the output directory for the code coverage report. -->
+                  <outputDirectory>${project.basedir}/target/jacoco-unit-report</outputDirectory>
+                </configuration>
+              </execution>
+              <execution>
+                <id>prepare-integration-tests</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+                <phase>pre-integration-test</phase>
+                <configuration>
+                  <destFile>${sonar.jacoco.itReportPath}</destFile>
+                  <propertyName>itCoverageAgent</propertyName>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <dependencies>
+        <dependency>
+          <groupId>org.jacoco</groupId>
+          <artifactId>org.jacoco.core</artifactId>
+          <version>0.7.6.201602180812</version>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
+      <id>default-coverage-property</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <!-- The coverage agent string should be empty to start, and only set
+        by jacoco if needed -->
+      <properties>
+        <!--suppress CheckTagEmptyBody -->
+        <itCoverageAgent></itCoverageAgent>
+      </properties>
     </profile>
 
     <profile>
@@ -519,7 +598,8 @@
       <dependency>
         <groupId>org.jboss.arquillian.core</groupId>
         <artifactId>arquillian-core-api</artifactId>
-        <version>1.1.11.Final</version>
+        <version>${arquillian.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.arquillian.testenricher</groupId>
@@ -541,6 +621,14 @@
         <artifactId>arquillian-testenricher-resource</artifactId>
         <version>${arquillian.version}</version>
       </dependency>
+
+      <dependency>
+        <groupId>org.jboss.arquillian.extension</groupId>
+        <artifactId>arquillian-jacoco</artifactId>
+        <version>1.0.0.Alpha8</version>
+        <scope>test</scope>
+      </dependency>
+
       <dependency>
         <groupId>org.jboss.arquillian.protocol</groupId>
         <artifactId>arquillian-protocol-servlet</artifactId>
@@ -554,7 +642,7 @@
       <dependency>
         <groupId>org.jboss.arquillian.container</groupId>
         <artifactId>arquillian-container-test-impl-base</artifactId>
-        <version>1.1.11.Final</version>
+        <version>${arquillian.version}</version>
       </dependency>
 
       <dependency>
@@ -614,6 +702,11 @@
     <!--</dependency>-->
 
     <dependency>
+      <groupId>org.jboss.arquillian.extension</groupId>
+      <artifactId>arquillian-jacoco</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>org.jboss.shrinkwrap</groupId>
       <artifactId>shrinkwrap-api</artifactId>
     </dependency>
@@ -631,13 +724,6 @@
       <classifier>source-release</classifier>
       <type>zip</type>
     </dependency>
-    <!--<dependency>-->
-    <!--<groupId>org.jboss.remoting3</groupId>-->
-    <!--<artifactId>jboss-remoting</artifactId>-->
-    <!--<version>3.3.8.Final</version>-->
-    <!--<classifier>source-release</classifier>-->
-    <!--<type>zip</type>-->
-    <!--</dependency>-->
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -669,6 +755,7 @@
       <groupId>org.jboss.arquillian.core</groupId>
       <artifactId>arquillian-core-api</artifactId>
       <version>${arquillian.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
