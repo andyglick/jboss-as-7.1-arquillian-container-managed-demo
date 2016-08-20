@@ -1,5 +1,9 @@
 #### ChangeLog
 
+2016-08-19 created 2 prfiles, 1 for jboss-as-managed and another for
+jboss-as-remote, was able t start JBoss AS in standalone mode and was
+able to successfully run the test against a running server many times
+
 2016-08-19 bumped version to 1.0.1 -- created a tag -- the code as is
 consistently runs the arquillian test in managed jboss mode 
 
