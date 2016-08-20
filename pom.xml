@@ -7,7 +7,7 @@
 
   <groupId>org.arquillian.example</groupId>
   <artifactId>arquillian-tutorial</artifactId>
-  <version>1.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>arquillian-tutorial</name>
@@ -59,6 +59,7 @@
     <jacoco.plugin.version>0.7.7.201606060606</jacoco.plugin.version>
     <jar.plugin.version>3.0.2</jar.plugin.version>
     <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
+    <jboss.marshalling.version>1.4.11.Final</jboss.marshalling.version>
     <jxr.plugin.version>2.5</jxr.plugin.version>
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -349,22 +350,22 @@
       <dependency>
         <groupId>javax.enterprise</groupId>
         <artifactId>cdi-api</artifactId>
-        <version>2.0-EDR1</version>
+        <version>2.0-EDR2</version>
       </dependency>
       <dependency>
         <groupId>javax.activation</groupId>
         <artifactId>activation</artifactId>
-        <version>1.1.1</version>
+        <version>1.1.1-redhat-2</version>
       </dependency>
       <dependency>
         <groupId>javax.inject</groupId>
         <artifactId>javax.inject</artifactId>
-        <version>1</version>
+        <version>1.0.0.redhat-6</version>
       </dependency>
       <dependency>
         <groupId>javax.validation</groupId>
         <artifactId>validation-api</artifactId>
-        <version>1.1.0.Final</version>
+        <version>1.1.0.Final-redhat-1</version>
       </dependency>
 
       <dependency>
@@ -391,21 +392,22 @@
         <version>2.0.4.Final</version>
       </dependency>
 
+      <!-- the value of jboss.marshalling.version is newer than the 2.0.0.beta series-->
       <dependency>
         <groupId>org.jboss.marshalling</groupId>
         <artifactId>jboss-marshalling</artifactId>
-        <version>1.4.11.Final</version>
+        <version>${jboss.marshalling.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jboss.marshalling</groupId>
         <artifactId>jboss-marshalling-river</artifactId>
-        <version>1.4.11.Final</version>
+        <version>${jboss.marshalling.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.jboss.modules</groupId>
         <artifactId>jboss-modules</artifactId>
-        <version>1.5.2.Final</version>
+        <version>1.6.0.Beta1</version>
       </dependency>
 
       <dependency>
@@ -503,7 +505,7 @@
       <dependency>
         <groupId>org.jboss.logging</groupId>
         <artifactId>jboss-logging</artifactId>
-        <version>3.3.0.Final</version>
+        <version>3.3.0.Final-redhat-1</version>
       </dependency>
       <dependency>
         <groupId>org.jboss.xnio</groupId>
@@ -522,11 +524,26 @@
         <version>${arquillian.version}</version>
         <scope>provided</scope>
       </dependency>
+
+      <dependency>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
+        <artifactId>arquillian-testenricher-initialcontext</artifactId>
+        <version>1.1.11.Final</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
+        <artifactId>arquillian-testenricher-initialcontext</artifactId>
+        <version>1.1.11.Final</version>
+        <classifier>tests</classifier>
+      </dependency>
+
       <dependency>
         <groupId>org.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-api</artifactId>
         <version>${arquillian.version}</version>
       </dependency>
+
       <dependency>
         <groupId>org.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-ejb</artifactId>
