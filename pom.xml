@@ -70,7 +70,7 @@
     <resources.plugin.version>3.0.1</resources.plugin.version>
     <shrinkwrap.version>1.2.6</shrinkwrap.version>
     <shrinkwrap.descriptors.version>2.0.0-alpha-10</shrinkwrap.descriptors.version>
-    <shrinkwrap.resolver.version>2.2.3</shrinkwrap.resolver.version>
+    <shrinkwrap.resolver.version>2.2.2</shrinkwrap.resolver.version>
     <site.plugin.version>3.5.1</site.plugin.version>
     <slf4j.version>1.7.21</slf4j.version>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -628,12 +628,6 @@
         <version>1.0.0.Alpha3</version>
       </dependency>
 
-      <!--<dependency>-->
-        <!--<groupId>org.arquillian.testenricher</groupId>-->
-        <!--<artifactId>arquillian-testenricher-api</artifactId>-->
-        <!--<version>${arquillian.version}</version>-->
-      <!--</dependency>-->
-
       <dependency>
         <groupId>org.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-ejb</artifactId>
@@ -731,19 +725,6 @@
   </dependencyManagement>
 
   <dependencies>
-
-    <!--<dependency>-->
-      <!--<groupId>org.arquillian.container</groupId>-->
-      <!--<artifactId>arquillian-container-chameleon</artifactId>-->
-      <!--<version>1.0.0.Alpha7</version>-->
-      <!--<scope>test</scope>-->
-      <!--<exclusions>-->
-        <!--<exclusion>-->
-          <!--<groupId>commons-io</groupId>-->
-          <!--<artifactId>common-io</artifactId>-->
-        <!--</exclusion>-->
-      <!--</exclusions>-->
-    <!--</dependency>-->
 
     <dependency>
       <groupId>org.jboss.arquillian.protocol</groupId>
