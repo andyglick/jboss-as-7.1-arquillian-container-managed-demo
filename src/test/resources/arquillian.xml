@@ -7,11 +7,11 @@
   <!-- using the servlet test injection protocol as opposed to the jmx test protocol -->
   <defaultProtocol type="Servlet 3.0"/>
 
-  <!--<container qualifier="jbossas-managed" default="true">-->
-    <!--<configuration>-->
-       <!--<property name="jbossHome">/Users/c1alg01/jtools/jboss-EAP-6.4.0-installed</property>-->
-    <!--</configuration>-->
-  <!--</container>-->
+  <container qualifier="jbossas-managed" default="false">
+    <configuration>
+      <property name="allowConnectingToRunningServer">true</property>
+    </configuration>
+  </container>
 
   <container qualifier="jbossas-remote-7" default="true"/>
 

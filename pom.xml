@@ -46,7 +46,7 @@
   </repositories>
 
   <properties>
-    <atomikos.version>3.9.0.M1</atomikos.version>
+    <atomikos.version>4.0.4</atomikos.version>
     <arquillian.version>1.1.11.Final</arquillian.version>
     <clean.plugin.version>3.0.0</clean.plugin.version>
     <dependency.plugin.version>2.10</dependency.plugin.version>
@@ -62,15 +62,15 @@
     <jboss.marshalling.version>1.4.11.Final</jboss.marshalling.version>
     <jxr.plugin.version>2.5</jxr.plugin.version>
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <plugin.plugin.version>3.4</plugin.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <resources.plugin.version>3.0.1</resources.plugin.version>
     <shrinkwrap.version>1.2.6</shrinkwrap.version>
     <shrinkwrap.descriptors.version>2.0.0-alpha-10</shrinkwrap.descriptors.version>
-    <shrinkwrap.resolver.version>2.2.2</shrinkwrap.resolver.version>
+    <shrinkwrap.resolver.version>2.2.3</shrinkwrap.resolver.version>
     <site.plugin.version>3.5.1</site.plugin.version>
     <slf4j.version>1.7.21</slf4j.version>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -245,7 +245,7 @@
         <dependency>
           <groupId>org.jboss.as</groupId>
           <artifactId>jboss-as-arquillian-container-remote</artifactId>
-          <version>7.2.0.Final</version>
+          <version>7.5.7.Final-redhat-3</version>
           <exclusions>
             <exclusion>
               <groupId>log4j</groupId>
@@ -454,9 +454,21 @@
       </dependency>
 
       <dependency>
+        <groupId>org.jboss.container</groupId>
+        <artifactId>arquillian</artifactId>
+        <version>${arquillian.version}</version>
+      </dependency>
+
+      <dependency>
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-build-config</artifactId>
         <version>7.5.9.Final-redhat-2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.arquillian.config</groupId>
+        <artifactId>arquillian-config-api</artifactId>
+        <version>${arquillian.version}</version>
       </dependency>
 
       <dependency>
@@ -464,6 +476,12 @@
         <artifactId>arquillian-core-api</artifactId>
         <version>${arquillian.version}</version>
         <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commins-io</artifactId>
+        <version>2.2</version>
       </dependency>
 
       <dependency>
@@ -585,7 +603,7 @@
       <dependency>
         <groupId>org.wildfly.security</groupId>
         <artifactId>wildfly-elytron</artifactId>
-        <version>1.0.3.Final</version>
+        <version>1.1.0.Beta8</version>
       </dependency>
 
       <dependency>
@@ -605,23 +623,16 @@
       </dependency>
 
       <dependency>
-        <groupId>org.jboss.arquillian.testenricher</groupId>
-        <artifactId>arquillian-testenricher-initialcontext</artifactId>
-        <version>1.1.11.Final</version>
-        <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.arquillian.testenricher</groupId>
-        <artifactId>arquillian-testenricher-initialcontext</artifactId>
-        <version>1.1.11.Final</version>
-        <classifier>tests</classifier>
+        <groupId>org.arquillian.universe</groupId>
+        <artifactId>arquillian-cukes</artifactId>
+        <version>1.0.0.Alpha3</version>
       </dependency>
 
-      <dependency>
-        <groupId>org.arquillian.testenricher</groupId>
-        <artifactId>arquillian-testenricher-api</artifactId>
-        <version>${arquillian.version}</version>
-      </dependency>
+      <!--<dependency>-->
+        <!--<groupId>org.arquillian.testenricher</groupId>-->
+        <!--<artifactId>arquillian-testenricher-api</artifactId>-->
+        <!--<version>${arquillian.version}</version>-->
+      <!--</dependency>-->
 
       <dependency>
         <groupId>org.arquillian.testenricher</groupId>
@@ -632,6 +643,12 @@
         <groupId>org.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-initialcontext</artifactId>
         <version>${arquillian.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
+        <artifactId>arquillian-testenricher-initialcontext</artifactId>
+        <version>${arquillian.version}</version>
+        <classifier>tests</classifier>
       </dependency>
       <dependency>
         <groupId>org.arquillian.testenricher</groupId>
@@ -662,6 +679,13 @@
         <version>${arquillian.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.jboss.shrinkwrap.resolver</groupId>
+        <artifactId>shrinkwrap-resolver-bom</artifactId>
+        <version>${shrinkwrap.resolver.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <dependency>
         <groupId>org.jboss.shrinkwrap</groupId>
         <artifactId>shrinkwrap-api</artifactId>
@@ -707,6 +731,20 @@
   </dependencyManagement>
 
   <dependencies>
+
+    <!--<dependency>-->
+      <!--<groupId>org.arquillian.container</groupId>-->
+      <!--<artifactId>arquillian-container-chameleon</artifactId>-->
+      <!--<version>1.0.0.Alpha7</version>-->
+      <!--<scope>test</scope>-->
+      <!--<exclusions>-->
+        <!--<exclusion>-->
+          <!--<groupId>commons-io</groupId>-->
+          <!--<artifactId>common-io</artifactId>-->
+        <!--</exclusion>-->
+      <!--</exclusions>-->
+    <!--</dependency>-->
+
     <dependency>
       <groupId>org.jboss.arquillian.protocol</groupId>
       <artifactId>arquillian-protocol-servlet</artifactId>
@@ -796,7 +834,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.0.106-beta</version>
+      <version>2.0.111-beta</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -810,6 +848,12 @@
       <artifactId>imagecomparison</artifactId>
       <version>0.3.2</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.hamcrest</groupId>
