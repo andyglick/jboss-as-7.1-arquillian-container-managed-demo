@@ -9,7 +9,6 @@ import javax.inject.Inject;
  *
  * @author glick
  */
-@SuppressWarnings({"WeakerAccess", "CdiInjectionPointsInspection"})
 public class Greeter {
 
   private PhraseBuilder phraseBuilder;
