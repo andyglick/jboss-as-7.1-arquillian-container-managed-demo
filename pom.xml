@@ -68,13 +68,13 @@
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <plugin.plugin.version>3.4</plugin.plugin.version>
+    <plugin.plugin.version>3.5</plugin.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <resources.plugin.version>3.0.1</resources.plugin.version>
     <shrinkwrap.version>1.2.6</shrinkwrap.version>
     <shrinkwrap.descriptors.version>2.0.0-alpha-10</shrinkwrap.descriptors.version>
-    <shrinkwrap.resolver.version>2.2.3</shrinkwrap.resolver.version>
+    <shrinkwrap.resolver.version>2.2.4</shrinkwrap.resolver.version>
     <site.plugin.version>3.5.1</site.plugin.version>
     <slf4j.version>1.7.21</slf4j.version>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -91,7 +91,7 @@
     <surefire.version>2.19.1</surefire.version>
     <versioneye.project.id>57a62edd0f6400002c8da2cd</versioneye.project.id>
     <versions.plugin.version>2.3</versions.plugin.version>
-    <war.plugin.version>2.6</war.plugin.version>
+    <war.plugin.version>3.0.0</war.plugin.version>
   </properties>
 
   <build>
@@ -224,6 +224,78 @@
   </build>
 
   <profiles>
+
+    <profile>
+      <id>glassfish-managed</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.jboss.arquillian.container</groupId>
+          <artifactId>arquillian-glassfish-managed-3.1</artifactId>
+          <version>1.0.0.Final</version>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>jetty-embedded-9</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.jboss.arquillian.container</groupId>
+          <artifactId>arquillian-jetty-embedded-9</artifactId>
+          <version>1.0.0.CR3</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-deploy</artifactId>
+          <version>9.4.0.M1</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>test-jetty-webapp</artifactId>
+          <version>9.4.0.M1</version>
+        </dependency>
+       <!-- <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-webapp</artifactId>
+          <version>7.0.2.v20100331</version>
+          <scope>test</scope>
+        </dependency>-->
+        <!-- plus and naming requires for using JNDI -->
+        <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-plus</artifactId>
+          <version>9.4.0.M1</version>
+          <scope>test</scope>
+        </dependency>
+        <!--<dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-plus</artifactId>
+          <version>7.0.2.v20100331</version>
+          <scope>test</scope>
+        </dependency>-->
+        <!-- Weld servlet, EL and JSP required for testing CDI injections -->
+        <dependency>
+          <groupId>org.jboss.weld.servlet</groupId>
+          <artifactId>weld-servlet</artifactId>
+          <version>1.0.1-Final</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.web</groupId>
+          <artifactId>el-impl</artifactId>
+          <version>2.2</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.servlet.jsp</groupId>
+          <artifactId>jsp-api</artifactId>
+          <version>2.2</version>
+          <scope>test</scope>
+        </dependency>
+      </dependencies>
+    </profile>
     <profile>
       <id>jbossas-remote-7</id>
       <dependencyManagement>
@@ -270,7 +342,7 @@
       </dependencies>
     </profile>
     <profile>
-      <id>jboss-as-managed</id>
+      <id>jbossas-managed</id>
       <dependencyManagement>
         <dependencies>
           <dependency>
@@ -454,6 +526,11 @@
         <groupId>javax.validation</groupId>
         <artifactId>validation-api</artifactId>
         <version>1.1.0.Final-redhat-1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>5.3.0.CR1</version>
       </dependency>
 
       <dependency>
@@ -779,20 +856,26 @@
       <artifactId>arquillian-jacoco</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.jboss.remoting3</groupId>
-      <artifactId>jboss-remoting</artifactId>
-      <version>3.3.8.Final-redhat-1</version>
-      <scope>provided</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.jboss.remoting3</groupId>-->
+      <!--<artifactId>jboss-remoting</artifactId>-->
+      <!--<version>3.3.8.Final-redhat-1</version>-->
+      <!--<scope>provided</scope>-->
+    <!--</dependency>-->
 
-    <dependency>
-      <groupId>org.jboss.remoting</groupId>
-      <artifactId>jboss-remoting</artifactId>
-      <version>5.0.0.Beta4</version>
-      <classifier>source-release</classifier>
-      <type>zip</type>
-    </dependency>
+      <dependency>
+          <groupId>org.jboss.remoting</groupId>
+          <artifactId>jboss-remoting</artifactId>
+          <version>4.0.21.Final</version>
+      </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>org.jboss.remoting</groupId>-->
+      <!--<artifactId>jboss-remoting</artifactId>-->
+      <!--<version>5.0.0.Beta4</version>-->
+      <!--<classifier>source-release</classifier>-->
+      <!--<type>zip</type>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -836,7 +919,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.0.111-beta</version>
+      <version>2.1.0-RC.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
