@@ -210,7 +210,7 @@
       <plugin>
         <groupId>com.versioneye</groupId>
         <artifactId>versioneye-maven-plugin</artifactId>
-        <version>3.10.2</version>
+        <version>3.11.0</version>
         <configuration>
           <projectId>${versioneye.project.id}</projectId>
         </configuration>
@@ -502,6 +502,25 @@
         </dependency>
       </dependencies>
     </profile>
+
+    <profile>
+      <id>simple-logging</id>
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-simple</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
   </profiles>
 
   <dependencyManagement>
@@ -648,7 +667,7 @@
       <dependency>
         <groupId>org.jboss.msc</groupId>
         <artifactId>jboss-msc</artifactId>
-        <version>1.2.7.Final</version>
+        <version>1.2.6.Final-redhat-1</version>
       </dependency>
 
       <dependency>
@@ -919,7 +938,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.2.6</version>
+      <version>2.2.9</version>
       <scope>test</scope>
     </dependency>
     <dependency>
