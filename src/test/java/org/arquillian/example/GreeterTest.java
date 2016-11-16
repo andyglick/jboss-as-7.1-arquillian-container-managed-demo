@@ -10,8 +10,11 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import java.lang.invoke.MethodHandles;
 
 /**
  * @author glick
@@ -20,10 +23,14 @@ import javax.inject.Inject;
 @RunWith(Arquillian.class)
 public class GreeterTest {
 
+  private static final transient Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
   @Deployment
   public static JavaArchive createDeployment() {
     return ShrinkWrap.create(JavaArchive.class)
       .addClasses(Greeter.class, PhraseBuilder.class)
+        .addPackages(true, "org.slf4j")
+        .addPackages(true, "ch.qos.logback")
       .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
   }
 
@@ -32,7 +39,9 @@ public class GreeterTest {
 
   @Test
   public void should_create_greeting() {
-    Assert.assertEquals("Hello, Earthling!", greeter.createGreeting("Earthling"));
-    greeter.greet(System.out, "Earthling");
+    String greeting = greeter.createGreeting("Earthling");
+    Assert.assertEquals("Hello, Earthling!", greeting);
+    greeter.greet(System.out, greeting);
+    greeter.greet(log,greeting);
   }
 }
