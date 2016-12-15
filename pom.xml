@@ -59,20 +59,20 @@
     <jacoco.plugin.version>0.7.7.201606060606</jacoco.plugin.version>
     <jar.plugin.version>3.0.2</jar.plugin.version>
     <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
-    <jboss.marshalling.version>1.4.11.Final</jboss.marshalling.version>
+    <jboss.marshalling.version>2.0.0.Beta3</jboss.marshalling.version>
     <jxr.plugin.version>2.5</jxr.plugin.version>
-    <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+    <maven.compiler.plugin.version>3.6.0</maven.compiler.plugin.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <plugin.plugin.version>3.4</plugin.plugin.version>
+    <plugin.plugin.version>3.5</plugin.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <resources.plugin.version>3.0.1</resources.plugin.version>
     <shrinkwrap.version>1.2.6</shrinkwrap.version>
     <shrinkwrap.descriptors.version>2.0.0-alpha-10</shrinkwrap.descriptors.version>
-    <shrinkwrap.resolver.version>2.2.2</shrinkwrap.resolver.version>
-    <site.plugin.version>3.5.1</site.plugin.version>
-    <slf4j.version>1.7.21</slf4j.version>
+    <shrinkwrap.resolver.version>2.2.4</shrinkwrap.resolver.version>
+    <site.plugin.version>3.6</site.plugin.version>
+    <slf4j.version>1.7.22</slf4j.version>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.host.url>https://dev.offset1.net/sonar/</sonar.host.url>
     <sonar.jacoco.itReportPath>${project.basedir}/../target/jacoco-it.exec</sonar.jacoco.itReportPath>
@@ -87,7 +87,8 @@
     <surefire.useFile>false</surefire.useFile>
     <versioneye.project.id>57a62edd0f6400002c8da2cd</versioneye.project.id>
     <versions.plugin.version>2.3</versions.plugin.version>
-    <war.plugin.version>2.6</war.plugin.version>
+    <war.plugin.version>3.0.0</war.plugin.version>
+    <xnio.version>3.4.2.Final</xnio.version>
   </properties>
 
   <build>
@@ -196,7 +197,7 @@
       <plugin>
         <groupId>com.versioneye</groupId>
         <artifactId>versioneye-maven-plugin</artifactId>
-        <version>3.10.2</version>
+        <version>3.11.0</version>
         <configuration>
           <projectId>${versioneye.project.id}</projectId>
         </configuration>
@@ -280,7 +281,7 @@
         <dependency>
           <groupId>org.jboss.as</groupId>
           <artifactId>jboss-as-arquillian-container-managed</artifactId>
-          <version>7.5.8.Final-redhat-2</version>
+          <version>7.5.11.Final-redhat-1</version>
         </dependency>
       </dependencies>
     </profile>
@@ -399,7 +400,7 @@
           <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.7</version>
+            <version>1.1.8</version>
             <exclusions>
               <exclusion>
                 <groupId>org.slf4j</groupId>
@@ -424,7 +425,7 @@
       <dependency>
         <groupId>javax.enterprise</groupId>
         <artifactId>cdi-api</artifactId>
-        <version>2.0-EDR2</version>
+        <version>2.0.Beta1</version>
       </dependency>
       <dependency>
         <groupId>javax.activation</groupId>
@@ -462,7 +463,7 @@
       <dependency>
         <groupId>org.jboss.as</groupId>
         <artifactId>jboss-as-build-config</artifactId>
-        <version>7.5.9.Final-redhat-2</version>
+        <version>7.5.12.Final-redhat-1</version>
       </dependency>
 
       <dependency>
@@ -511,7 +512,7 @@
       <dependency>
         <groupId>org.jboss.modules</groupId>
         <artifactId>jboss-modules</artifactId>
-        <version>1.6.0.Beta1</version>
+        <version>1.6.0.Beta4</version>
       </dependency>
 
       <dependency>
@@ -557,7 +558,7 @@
       <dependency>
         <groupId>org.jboss.msc</groupId>
         <artifactId>jboss-msc</artifactId>
-        <version>1.2.6.Final-redhat-1</version>
+        <version>1.2.7.Final</version>
       </dependency>
 
       <dependency>
@@ -594,17 +595,17 @@
         <version>${arquillian.version}</version>
       </dependency>
 
-      <dependency>
+      <!--<dependency>
         <groupId>org.wildfly.common</groupId>
         <artifactId>wildfly-common</artifactId>
-        <version>1.2.0.Beta1</version>
-      </dependency>
+        <version>1.2.0.Beta2</version>
+      </dependency>-->
 
-      <dependency>
+      <!--<dependency>
         <groupId>org.wildfly.security</groupId>
         <artifactId>wildfly-elytron</artifactId>
-        <version>1.1.0.Beta8</version>
-      </dependency>
+        <version>1.1.0.Beta17</version>
+      </dependency>-->
 
       <dependency>
         <groupId>org.jboss.logging</groupId>
@@ -614,27 +615,27 @@
       <dependency>
         <groupId>org.jboss.xnio</groupId>
         <artifactId>xnio-nio</artifactId>
-        <version>3.4.0.Final</version>
+        <version>${xnio.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jboss.xnio</groupId>
         <artifactId>xnio-api</artifactId>
-        <version>3.4.0.Final</version>
+        <version>${xnio.version}</version>
       </dependency>
 
       <dependency>
         <groupId>org.arquillian.universe</groupId>
         <artifactId>arquillian-cukes</artifactId>
-        <version>1.0.0.Alpha3</version>
+        <version>1.0.0.Alpha4</version>
       </dependency>
 
       <dependency>
-        <groupId>org.arquillian.testenricher</groupId>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-ejb</artifactId>
         <version>${arquillian.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.arquillian.testenricher</groupId>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-initialcontext</artifactId>
         <version>${arquillian.version}</version>
       </dependency>
@@ -645,9 +646,16 @@
         <classifier>tests</classifier>
       </dependency>
       <dependency>
-        <groupId>org.arquillian.testenricher</groupId>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
         <artifactId>arquillian-testenricher-resource</artifactId>
         <version>${arquillian.version}</version>
+        <classifier>tests</classifier>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian.testenricher</groupId>
+        <artifactId>arquillian-testenricher-resource</artifactId>
+        <version>${arquillian.version}</version>
+        <classifier>test-sources</classifier>
       </dependency>
 
       <dependency>
@@ -727,6 +735,12 @@
   <dependencies>
 
     <dependency>
+      <groupId>org.jboss.arquillian.testenricher</groupId>
+      <artifactId>arquillian-testenricher-resource</artifactId>
+      <version>${arquillian.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.jboss.arquillian.protocol</groupId>
       <artifactId>arquillian-protocol-servlet</artifactId>
       <version>${arquillian.version}</version>
@@ -736,7 +750,7 @@
     <dependency>
       <groupId>org.jboss.spec</groupId>
       <artifactId>jboss-javaee-all-7.0</artifactId>
-      <version>1.0.3.Final</version>
+      <version>1.1.0.Beta1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -768,7 +782,7 @@
     <dependency>
       <groupId>org.jboss.remoting</groupId>
       <artifactId>jboss-remoting</artifactId>
-      <version>5.0.0.Beta4</version>
+      <version>5.0.0.Beta13</version>
       <classifier>source-release</classifier>
       <type>zip</type>
     </dependency>
@@ -815,7 +829,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.0.111-beta</version>
+      <version>2.3.5</version>
       <scope>test</scope>
     </dependency>
     <dependency>
