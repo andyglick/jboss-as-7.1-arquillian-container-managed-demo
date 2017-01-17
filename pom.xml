@@ -214,6 +214,21 @@
 
   <profiles>
     <profile>
+      <id>glassfish-managed-4.1.1</id>
+      <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+      </dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>org.jboss.arquillian.container</groupId>
+          <artifactId>arquillian-glassfish-managed-3.1</artifactId>
+          <version>1.0.0.Final</version>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
       <id>jbossas-remote-7</id>
       <dependencyManagement>
         <dependencies>

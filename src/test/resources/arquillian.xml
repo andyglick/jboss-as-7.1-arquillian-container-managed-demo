@@ -9,10 +9,17 @@
 
   <container qualifier="jbossas-managed" default="false">
     <configuration>
-      <property name="allowConnectingToRunningServer">true</property>
+      <property name="allowConnectingToRunningServer">false</property>
     </configuration>
   </container>
 
-  <container qualifier="jbossas-remote-7" default="true"/>
+  <container qualifier="jbossas-remote-7" default="false"/>
+
+  <container qualifier="glassfish-4.1.1-managed" default="true">
+    <configuration>
+      <property name="glassFishHome">${user.home}/servers/payara-4.1.1.164</property>
+      <property name="allowConnectingToRunningServer">true</property>
+    </configuration>
+  </container>
 
 </arquillian>

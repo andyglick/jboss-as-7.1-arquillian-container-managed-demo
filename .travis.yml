@@ -4,4 +4,4 @@ language: java
 jdk:
   - oraclejdk8
 
-script: mvn clean verify
+script: mvn clean verify -P glassfish-managed-4.1.1
