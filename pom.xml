@@ -57,11 +57,11 @@
     <findbugs.plugin.version>3.0.4</findbugs.plugin.version>
     <help.plugin.version>2.2</help.plugin.version>
     <install.plugin.version>2.5.2</install.plugin.version>
-    <jacoco.version>0.7.8</jacoco.version>
+    <jacoco.version>0.7.9</jacoco.version>
     <jar.plugin.version>3.0.2</jar.plugin.version>
     <java.version>1.8</java.version>
     <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
-    <jboss.marshalling.version>2.0.0.Beta4</jboss.marshalling.version>
+    <jboss.marshalling.version>2.0.0.Beta5</jboss.marshalling.version>
     <jxr.plugin.version>2.5</jxr.plugin.version>
     <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -73,9 +73,9 @@
     <resources.plugin.version>3.0.2</resources.plugin.version>
     <shrinkwrap.version>1.2.6</shrinkwrap.version>
     <shrinkwrap.descriptors.version>2.0.0-alpha-10</shrinkwrap.descriptors.version>
-    <shrinkwrap.resolver.version>3.0.0-alpha-2</shrinkwrap.resolver.version>
+    <shrinkwrap.resolver.version>3.0.0-alpha-4</shrinkwrap.resolver.version>
     <site.plugin.version>3.6</site.plugin.version>
-    <slf4j.version>1.7.22</slf4j.version>
+    <slf4j.version>1.7.24</slf4j.version>
     <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
     <sonar.host.url>https://dev.offset1.net/sonar/</sonar.host.url>
     <sonar.jacoco.itReportPath>${project.basedir}/../target/jacoco-it.exec</sonar.jacoco.itReportPath>
@@ -91,7 +91,7 @@
     <versioneye.project.id>57a62edd0f6400002c8da2cd</versioneye.project.id>
     <versions.plugin.version>2.3</versions.plugin.version>
     <war.plugin.version>3.0.0</war.plugin.version>
-    <xnio.version>3.4.3.Final</xnio.version>
+    <xnio.version>3.5.0.Beta3</xnio.version>
   </properties>
 
   <build>
@@ -470,7 +470,7 @@
       <dependency>
         <groupId>org.wildfly.common</groupId>
         <artifactId>wildfly-common</artifactId>
-        <version>1.2.0.Beta4</version>
+        <version>1.2.0.Beta7</version>
       </dependency>
 
       <dependency>
@@ -594,13 +594,13 @@
       <dependency>
         <groupId>org.jboss.spec.javax.el</groupId>
         <artifactId>jboss-el-api_3.0_spec</artifactId>
-        <version>1.0.7.Final</version>
+        <version>1.0.9.Final</version>
       </dependency>
 
       <dependency>
         <groupId>org.jboss.logmanager</groupId>
         <artifactId>jboss-logmanager</artifactId>
-        <version>2.0.4.Final</version>
+        <version>2.0.5.Final</version>
       </dependency>
 
       <!-- the value of jboss.marshalling.version is newer than the 2.0.0.beta series-->
@@ -664,13 +664,13 @@
       <dependency>
         <groupId>org.jboss.msc</groupId>
         <artifactId>jboss-msc</artifactId>
-        <version>1.2.7.Final</version>
+        <version>1.2.7.SP1</version>
       </dependency>
 
       <dependency>
         <groupId>org.jboss.remoting3</groupId>
         <artifactId>jboss-remoting</artifactId>
-        <version>3.3.8.Final-redhat-1</version>
+        <version>3.3.9.Final</version>
         <scope>provided</scope>
       </dependency>
 
@@ -732,7 +732,7 @@
       <dependency>
         <groupId>org.arquillian.universe</groupId>
         <artifactId>arquillian-cukes</artifactId>
-        <version>1.0.0.Alpha7</version>
+        <version>1.1.12.0</version>
       </dependency>
 
       <dependency>
@@ -880,14 +880,14 @@
     <dependency>
       <groupId>org.jboss.remoting3</groupId>
       <artifactId>jboss-remoting</artifactId>
-      <version>3.3.8.Final-redhat-1</version>
+      <version>3.3.9.Final</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.jboss.remoting</groupId>
       <artifactId>jboss-remoting</artifactId>
-      <version>5.0.0.Beta14</version>
+      <version>5.0.0.Beta19</version>
       <classifier>source-release</classifier>
       <type>zip</type>
     </dependency>
@@ -934,7 +934,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.6.8</version>
+      <version>2.7.16</version>
       <scope>test</scope>
     </dependency>
     <dependency>
