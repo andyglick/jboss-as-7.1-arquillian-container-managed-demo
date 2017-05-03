@@ -13,10 +13,6 @@
   <name>arquillian-tutorial</name>
   <url>http://maven.apache.org</url>
 
-  <prerequisites>
-    <maven>3.3.9</maven>
-  </prerequisites>
-
   <repositories>
     <repository>
       <id>jboss-public</id>
@@ -45,6 +41,10 @@
     </repository>
   </repositories>
 
+  <prerequisites>
+    <maven>3.5.0</maven>
+  </prerequisites>
+
   <properties>
     <aether.version>1.1.0</aether.version>
     <atomikos.version>4.0.4</atomikos.version>
@@ -61,7 +61,7 @@
     <jar.plugin.version>3.0.2</jar.plugin.version>
     <java.version>1.8</java.version>
     <javadoc.plugin.version>2.10.4</javadoc.plugin.version>
-    <jboss.marshalling.version>2.0.0.Beta5</jboss.marshalling.version>
+    <jboss.marshalling.version>2.0.0.Beta6</jboss.marshalling.version>
     <jxr.plugin.version>2.5</jxr.plugin.version>
     <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -85,13 +85,13 @@
     <sonar.plugin.version>3.0.2</sonar.plugin.version>
     <source.plugin.version>3.0.1</source.plugin.version>
     <spring.version>3.2.3.RELEASE</spring.version>
-    <surefire.plugin.version>2.19.1</surefire.plugin.version>
+    <surefire.plugin.version>2.20</surefire.plugin.version>
     <surefire.reportFormat>plain</surefire.reportFormat>
     <surefire.useFile>false</surefire.useFile>
     <versioneye.project.id>57a62edd0f6400002c8da2cd</versioneye.project.id>
     <versions.plugin.version>2.3</versions.plugin.version>
-    <war.plugin.version>3.0.0</war.plugin.version>
-    <xnio.version>3.5.0.Beta4</xnio.version>
+    <war.plugin.version>3.1.0</war.plugin.version>
+    <xnio.version>3.5.0.Beta5</xnio.version>
   </properties>
 
   <build>
@@ -239,7 +239,7 @@
         <dependency>
           <groupId>org.jboss.as</groupId>
           <artifactId>jboss-as-arquillian-container-managed</artifactId>
-          <version>7.5.11.Final-redhat-1</version>
+          <version>7.5.14.Final-redhat-2</version>
         </dependency>
       </dependencies>
     </profile>
@@ -470,7 +470,7 @@
       <dependency>
         <groupId>org.wildfly.common</groupId>
         <artifactId>wildfly-common</artifactId>
-        <version>1.2.0.Beta8</version>
+        <version>1.2.0.Beta10</version>
       </dependency>
 
       <dependency>
@@ -720,7 +720,7 @@
       <dependency>
         <groupId>org.arquillian.universe</groupId>
         <artifactId>arquillian-cukes</artifactId>
-        <version>1.1.13.3</version>
+        <version>1.1.13.4</version>
       </dependency>
 
       <dependency>
@@ -875,7 +875,7 @@
     <dependency>
       <groupId>org.jboss.remoting</groupId>
       <artifactId>jboss-remoting</artifactId>
-      <version>5.0.0.Beta19</version>
+      <version>5.0.0.Beta20</version>
       <classifier>source-release</classifier>
       <type>zip</type>
     </dependency>
